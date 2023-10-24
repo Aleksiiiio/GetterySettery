@@ -3,11 +3,12 @@ public class BankAccount {
     private double accountBalance;
 
     public BankAccount(String accountNumber, double accountBalance) {
-            this.accountNumber = accountNumber;
+        this.accountNumber = accountNumber;
         if (accountBalance >= 0) {
             this.accountBalance = accountBalance;
         }
     }
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -17,7 +18,9 @@ public class BankAccount {
     }
 
     public void setAccountBalance(double accountBalance) {
-        this.accountBalance = accountBalance;
+        if (accountBalance >= 0) {
+            this.accountBalance = accountBalance;
+        }
     }
 
     public double deposit(double depositAmount) {
@@ -27,8 +30,8 @@ public class BankAccount {
         return accountBalance;
     }
 
-    public void withdraw(double withdrawAmount){
-        if (withdrawAmount > 0 && withdrawAmount <= accountBalance){
+    public void withdraw(double withdrawAmount) {
+        if (withdrawAmount > 0 && withdrawAmount <= accountBalance) {
             accountBalance -= withdrawAmount;
         }
     }

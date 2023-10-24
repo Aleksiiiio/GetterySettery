@@ -19,6 +19,8 @@ public class Main {
         bankAccount.withdraw(500);
         System.out.println("Cena po wypłacie : "+bankAccount.getAccountBalance());
 
+        bankAccount.setAccountBalance(-500);
+
         System.out.println("------------------------------------------------");
         double amountDeposit = 4000;
         double locatePercent = 10;

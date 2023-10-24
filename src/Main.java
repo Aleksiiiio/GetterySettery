@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 //        System.out.println("Podaj numer konta");
-//        Scanner scaner = new Scanner(System.in);
+        Scanner scaner = new Scanner(System.in);
 //        String accountNumber = loadString(scaner);
 //        System.out.println("Podaj balans konta");
 //        double accountBalance = scaner.nextDouble();
 //        BankAccount bankAccount = new BankAccount(accountNumber, accountBalance);
 
-        BankAccount bankAccount = new BankAccount("11112222333344445555666677", 20000.0);
+        BankAccount bankAccount = new BankAccount("11112222333344445555666677", 5000.0);
         System.out.println("Numer konta : "+bankAccount.getAccountNumber());
         System.out.println("Balans konta : "+bankAccount.getAccountBalance());
 
@@ -20,13 +20,20 @@ public class Main {
         System.out.println("Cena po wypłacie : "+bankAccount.getAccountBalance());
 
         System.out.println("------------------------------------------------");
-        double amountDeposit = 1000;
+        double amountDeposit = 4000;
         double locatePercent = 10;
-        int locateTime = 3;
+        int locateTime = 1;
         LocalTime timestart = LocalTime.now();
         System.out.println(timestart);
         LocalTime timeend = timestart.plusMinutes(locateTime);
         System.out.println(timeend);
+
+        String end = "";
+        while (!end.equalsIgnoreCase("END")){
+            System.out.println("Poczekaj "+locateTime+" minuty i wpisz end");
+            end = scaner.nextLine();
+        }
+
         TermDeposit termDeposit = new TermDeposit(amountDeposit, locatePercent, locateTime);
         if(LocalTime.now().isBefore(timeend)){
             System.out.println("Lokata sie jeszcze nie zakonczyla");
